@@ -1,7 +1,9 @@
 class MapService
   def self.get_location(location)
     loc = MapService.get_data("/geocoding/v1/address?location=#{location}")
-
+    
+    binding.pry
+    
     loc[:results].first[:locations].first[:latLng]
   end
   
