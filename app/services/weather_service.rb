@@ -1,5 +1,6 @@
 class WeatherService
   def self.get_forecast(location)
+    # binding.pry
     loc = MapService.get_location(location)
     
     weather = WeatherService.get_data("forecast.json?&q=#{loc[:lat]} #{loc[:lng]}&days=5") 
