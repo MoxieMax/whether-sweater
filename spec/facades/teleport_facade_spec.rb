@@ -4,6 +4,7 @@ RSpec.describe TeleportFacade do
   let(:city){"Chicago"}
   let(:weather){TeleportFacade.weather_poro(city)}
   let(:salaries){TeleportFacade.salaries(city)}
+  let(:combo){TeleportFacade.combined_poro(city)}
   
   context 'methods' do
     it 'creates a #weather_poro' do
@@ -21,6 +22,13 @@ RSpec.describe TeleportFacade do
       expect(salaries.jobs).to be_an(Array)
       expect(salaries.jobs.count).to be <=7
       expect(salaries.jobs.first.keys).to eq([:title, :min, :max])
+    end
+    
+    it 'returns a #combined_poro' do
+      # binding.pry
+      expect(combo).to be_a(Combo)
+      expect(combo.salaries_hash.first).to be_a(Hash)
+      expect(combo.weather_hash).to be_a(Hash)
     end
   end
 end

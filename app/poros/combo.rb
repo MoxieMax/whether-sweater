@@ -1,7 +1,11 @@
 class Combo
-  attr_reader
+  attr_reader :weather_hash,
+              :salaries_hash
   
-  def initialize(weather, teleport)
+  def initialize(weather, salaries)
     
+    @weather_hash = weather.current_weather
+    @salaries_hash = salaries.jobs
+    # binding.pry
   end
 end
