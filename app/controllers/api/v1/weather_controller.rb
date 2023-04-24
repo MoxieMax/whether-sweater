@@ -1,7 +1,7 @@
-class Api::V1::WeatherController < ApplicationController
+class Api::V1::ForecastController < ApplicationController
   def index
-    weather = WeatherFacade.forecast(params[:location])
+    weather = ForecastFacade.forecast(params[:location])
     binding.pry
-    render json: WeatherSerializer.format_all(weather)
+    render json: ForecastSerializer.format_all(weather)
   end
 end

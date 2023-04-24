@@ -7,7 +7,7 @@ class TeleportFacade
 
   def self.weather_poro(urban_area)
     city_name = TeleportService.get_urban_area(urban_area.downcase)[:full_name] #query doesn't work if the city name isn't lowercase, so that's fun
-    WeatherFacade.forecast(city_name)
+    ForecastFacade.forecast(city_name)
   end
   
   def self.combined_poro(urban_area)
