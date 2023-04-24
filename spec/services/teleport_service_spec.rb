@@ -6,7 +6,6 @@ RSpec.describe TeleportService do
     
     it "can #get_urban_area" do
       query = TeleportService.get_urban_area(area)
-      # binding.pry
       
       expect(query).to be_a(Hash)
       expect(query.count).to eq(10)
@@ -26,7 +25,6 @@ RSpec.describe TeleportService do
     it "can #get_salaries" do
       query = TeleportService.get_salaries(area)
       
-      # binding.pry
       expect(query).to be_a(Hash)
       expect(query.count).to eq(2)
       expect(query.keys).to eq([:_links, :salaries])
