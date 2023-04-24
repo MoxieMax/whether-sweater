@@ -1,11 +1,12 @@
-class WeatherSerializer
+class ForecastSerializer
   include JSONAPI::Serializer
   attributes :current_weather, :daily_weather, :hourly_weather
       set_type :forecast
   
-  def self.format_all(weather)
+  def self.format_all(forecast)
+    # binding.pry
     {
-      data: weather.map do|w|
+      data: forecast.map do|w|
         {
           id: nil,
           type: "forecast",

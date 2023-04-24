@@ -1,8 +1,8 @@
-class WeatherService
+class ForecastService
   def self.get_forecast(location)
     loc = MapService.get_location(location)
     
-    weather = WeatherService.get_data("forecast.json?&q=#{loc[:lat]} #{loc[:lng]}&days=5") 
+    weather = ForecastService.get_data("forecast.json?&q=#{loc[:lat]} #{loc[:lng]}&days=5") 
     
     # http://api.weatherapi.com/v1/forecast.json?key=ENV[WEATHER_KEY]&q=39.10713 -84.50413&days=1&aqi=no&alerts=no
   end
