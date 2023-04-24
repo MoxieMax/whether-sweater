@@ -5,7 +5,7 @@ class WeatherService
     # binding.pry
     
     weather = WeatherService.get_data("forecast.json?&q=#{loc[:lat]} #{loc[:lng]}") #need to insert location and the rest of the url
-    binding.pry
+    # binding.pry
     
     # Full 
     # http://api.weatherapi.com/v1/forecast.json?key=334c34de20a348c694143627232304&q=39.10713 -84.50413&days=1&aqi=no&alerts=no
@@ -15,7 +15,7 @@ class WeatherService
   
   def self.get_data(url)
     response = conn.get(url)
-binding.pry #response has no body
+# binding.pry #response has no body
     JSON.parse(response.body, symbolize_names: true)
   end
   
