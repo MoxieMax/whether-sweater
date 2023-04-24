@@ -7,7 +7,7 @@ RSpec.describe WeatherFacade do
       
       expect(weather.class).to eq(Weather)
       expect(weather.id).to eq(nil)
-
+      
       expect(weather.current_weather.class).to eq(Hash)
       expect(weather.current_weather.keys).to eq([:last_updated, :temperature, :feels_like, :humidity, :uvi, :visibility, :condition, :icon])
       
