@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe TeleportFacade do
   let(:city){"Chicago"}
   let(:weather){TeleportFacade.weather_poro(city)}
+  let(:salaries){TeleportFacade.salaries(city)}
+  
   context 'methods' do
     it 'creates a #weather_poro' do
       expect(weather.class).to eq(Weather)
@@ -14,7 +16,7 @@ RSpec.describe TeleportFacade do
     end
     
     it 'returns #salaries and creates a poro' do
-      
+      binding.pry
     end
   end
 end

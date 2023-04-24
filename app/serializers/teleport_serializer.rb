@@ -7,12 +7,11 @@ class TeleportSerializer
   #   @job_titles = job_titles
   # end
   
-  def min
-    binding.pry
-    object[:salary_percentiles][:percentile_25].to_s.prepend('$')
-  end
-
-  def max
-    object[:salary_percentiles][:percentile_75].to_s.prepend('$')
-  end
+  # def min
+  #   object[:salary_percentiles][:percentile_25].round(2).to_s.prepend('$')
+  # end
+  # 
+  # def max
+  #   object[:salary_percentiles][:percentile_75].round(2).to_s.prepend('$')
+  # end
 end
