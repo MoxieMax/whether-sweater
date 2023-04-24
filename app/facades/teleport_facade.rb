@@ -5,8 +5,8 @@ class TeleportFacade
     job_data = TeleportService.get_salaries(urban_area.downcase)[:salaries]
     # binding.pry
     filtered = job_data.select { |job| self.job_titles.include?(job[:job][:title]) }
-    binding.pry
-    Teleport.new(job_data)
+    # binding.pry
+    Teleport.new(filtered)
     # binding.pry
     
   end

@@ -16,7 +16,11 @@ RSpec.describe TeleportFacade do
     end
     
     it 'returns #salaries and creates a poro' do
-      binding.pry
+      expect(salaries.class).to eq(Teleport)
+      expect(salaries.id).to eq(nil)
+      expect(salaries.jobs).to be_an(Array)
+      expect(salaries.jobs.count).to be <=7
+      expect(salaries.jobs.first.keys).to eq([:title, :min, :max])
     end
   end
 end
