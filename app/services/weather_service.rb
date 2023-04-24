@@ -9,7 +9,7 @@ class WeatherService
   
   def self.get_data(url)
     response = conn.get(url)
-# binding.pry #response has no body
+    
     JSON.parse(response.body, symbolize_names: true)
   end
   

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe MapService, :vcr do
+RSpec.describe MapService do
   context 'instance methods' do
     it 'returns lat/long' do
       #set up webmock / vcr
