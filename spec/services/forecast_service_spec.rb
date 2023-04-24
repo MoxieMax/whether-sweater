@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-describe WeatherService do
+describe ForecastService do
   context "instance methods" do
     it 'returns ' do
-      ws = WeatherService.get_forecast("Cincinnati, OH")
+      ws = ForecastService.get_forecast("Cincinnati, OH")
       
       expect(ws).to be_a Hash
       expect(ws.size).to eq(3)

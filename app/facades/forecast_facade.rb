@@ -1,7 +1,7 @@
-class WeatherFacade
+class ForecastFacade
   def self.forecast(loc)
-    data = WeatherService.get_forecast(loc)
-    Weather.new(data)
+    data = ForecastService.get_forecast(loc)
+    Forecast.new(data)
   end
 
   def self.coords(loc)
