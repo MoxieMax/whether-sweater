@@ -1,5 +1,5 @@
 class TeleportService
-  def self.get_urban_area(name)
+  def self.get_urban_area(urban_area)
     get_data("urban_areas/slug:#{urban_area}/")
   end
   
@@ -10,7 +10,7 @@ class TeleportService
   def self.get_data(url)
     response = conn.get(url)
     
-    binding.pry
+    # binding.pry
     
     JSON.parse(response.body, symbolize_names: true)
   end
