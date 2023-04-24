@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe WeatherFacade do
+RSpec.describe ForecastFacade do
   context 'methods' do
     it 'returns a #forecast and creates a poro' do
-      weather = WeatherFacade.forecast("Cincinnati, OH")
+      weather = ForecastFacade.forecast("Cincinnati, OH")
       
-      expect(weather.class).to eq(Weather)
+      expect(weather.class).to eq(Forecast)
       expect(weather.id).to eq(nil)
       
       expect(weather.current_weather.class).to eq(Hash)
@@ -28,7 +28,7 @@ RSpec.describe WeatherFacade do
     end
     
     it 'returns a set of #coords' do
-      coords = WeatherFacade.coords("Cincinnati, OH")
+      coords = ForecastFacade.coords("Cincinnati, OH")
       
       expect(coords).to be_a(Hash)
       expect(coords[:lat]).to eq(39.10713)
