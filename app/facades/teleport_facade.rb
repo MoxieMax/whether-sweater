@@ -1,7 +1,7 @@
 class TeleportFacade
   def self.salaries(urban_area)
     weather = weather_poro(urban_area)
-    binding.pry
+    # binding.pry
     job_data = TeleportService.get_salaries(urban_area)
     binding.pry
   end
