@@ -3,11 +3,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :api_keys, path: 'api-keys', only: %i[index create destroy]
+  # resources :api_keys, path: 'api-keys', only: %i[index create destroy]
   
   namespace :api do
     namespace :v1 do
-      resources :forecast, only: :index
+      resources :forecast, only: :show, param: :location
       resources :users, only: :create
     end
   end
