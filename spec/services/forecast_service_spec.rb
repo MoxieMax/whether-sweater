@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe ForecastService do
   context "instance methods" do
-    it 'returns ' do
+    it 'returns a forecast' do
       VCR.use_cassette('forecast_service/get_forecast/') do
         ws = ForecastService.get_forecast("Cincinnati, OH")
         

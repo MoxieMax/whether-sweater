@@ -4,8 +4,7 @@ class BoredService
     event = BoredService.get_data("activity/")
   end
   
-  def self.get_ctivity(key)
-    #random event
+  def self.get_activity(key) #string
     event = BoredService.get_data("activity?key=#{key}")
   end
   
@@ -24,11 +23,6 @@ class BoredService
   def self.get_activity_price_range(min, max) #float like 1.4
     event = BoredService.get_data("/activity?minprice=#{min}&maxprice=#{max}")
   end
-  
-  
-  
-  
-  
   
   def self.get_activity_by_accessibility(float) #float like 1.4
     event = BoredService.get_data("/activity?accessibility=#{float}")
@@ -49,10 +43,6 @@ class BoredService
   
   private
     def self.conn
-      Faraday.new
-      (
-        url: "http://www.boredapi.com/api/",
-        headers: { 'Content-Type' => 'application/json' }
-      )
+      Faraday.new(url: "http://www.boredapi.com/api/")
     end
 end
