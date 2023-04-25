@@ -5,12 +5,13 @@ RSpec.describe ActivityFacade do
     it '#temp_over_60' do
       VCR.use_cassette('activity_facade/temp_over_60') do
         activities = ActivityFacade.temp_over_60("chicago,il")
-        binding.pry
+        #poro with activity info is created
+        # binding.pry
       VCR.eject_cassette
       end
     end
     
-    it '#temp_between_50_60' do
+    xit '#temp_between_50_60' do
       # VCR.use_cassette('activity_facade/temp_between_50_60') do
           activities = ActivityFacade.temp_between_50_60("chicago,il")
         binding.pry
@@ -18,7 +19,7 @@ RSpec.describe ActivityFacade do
       # end
     end
     
-    it '#temp_under_50' do
+    xit '#temp_under_50' do
       # VCR.use_cassette('activity_facade/temp_under_50') do
           activities = ActivityFacade.temp_under_50("chicago,il")
           binding.pry

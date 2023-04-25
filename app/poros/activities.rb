@@ -1,9 +1,11 @@
 class Activities
-  attr_reader :activities
+  attr_reader :activities,
+              :id
   
   def initialize(data)
     # binding.pry
     @activities = activities_hash(data)
+    @id         = nil
     # binding.pry
   end
   
