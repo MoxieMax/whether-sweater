@@ -1,11 +1,14 @@
 class Activities
-  attr_reader :activities,
-              :id
+  attr_reader :id,
+              :activities,
+              :forecast
   
   def initialize(data)
     # binding.pry
-    @activities = activities_hash(data)
     @id         = nil
+    @activities = activities_hash(data)
+    binding.pry
+    # @forecast    = placeholder
     # binding.pry
   end
   

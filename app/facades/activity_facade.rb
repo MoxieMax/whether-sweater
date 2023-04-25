@@ -4,9 +4,15 @@ class ActivityFacade
     # forecast = ForecastFacade.forecast(destination).current_weather
     weather = get_weather(destination)
     activity_two = ActivityService.get_activity_by_type('recreational')
+    both = [activity_one, activity_two]
     # binding.pry
-    
-    Activities.new([activity_one, activity_two])
+    data = {
+            destination: destination,
+            # activities: ,
+            forecast_summary: get_weather(destination)[:condition],
+            temperature: "#{current_temp(destination)} F"
+          }
+    # Activities.new([activity_one, activity_two])
     # binding.pry
   end
   
@@ -28,18 +34,14 @@ class ActivityFacade
   
   def self.get_weather(destination)
     ForecastFacade.forecast(destination).current_weather
+    # binding.pry
   end
   
   def self.activity_one
     ActivityService.get_activity_by_type('relaxation')
   end
   
-  # def self.forecast_poro(destination)
-  #   WeatherFacade.forecast(destination)
-  # end
-  
-  # def self.activities_poro
-  # 
-  # end
-  
+  def self.current_temp(destination)
+    get_weather(destination)[:temperature]
+  end
 end
