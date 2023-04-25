@@ -33,3 +33,6 @@
 
 #Ignore simplecov
 coverage
+
+#Ignore old-tapes
+spec/cassettes/old-tapes
