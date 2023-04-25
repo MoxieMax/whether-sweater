@@ -8,28 +8,46 @@ class ActivityFacade
     # binding.pry
     data = {
             destination: destination,
-            # activities: ,
+            activities: format_activities(both),
             forecast_summary: get_weather(destination)[:condition],
             temperature: "#{current_temp(destination)} F"
           }
-    # Activities.new([activity_one, activity_two])
+          # binding.pry
+    Activities.new(data)
     # binding.pry
   end
   
   def self.temp_between_50_60(destination)
     # #if the temperature is >= 50 F and < 60 F, include one busywork activity.
+    weather = get_weather(destination)
     activity_two = ActivityService.get_activity_by_type('busywork')
-    
+    both = [activity_one, activity_two]
+    # binding.pry
+    data = {
+            destination: destination,
+            activities: format_activities(both),
+            forecast_summary: get_weather(destination)[:condition],
+            temperature: "#{current_temp(destination)} F"
+          }
+    Activities.new(data)
     binding.pry
-    act = Activities.new([activity_one, activity_two])
   end
   
   def self.temp_under_50(destination) # < 50 F(destination)
     # #if the temperature is < 50 F, include one cooking activity.
-    forecast = ForecastFacade.forecast(destination).current_weather
+    # forecast = ForecastFacade.forecast(destination).current_weather
+    weather = get_weather(destination)
     activity_two = ActivityService.get_activity_by_type('cooking')
-    binding.pry
-    act = Activities.new([activity_one, activity_two])
+    both = [activity_one, activity_two]
+    # binding.pry
+    data = {
+            destination: destination,
+            activities: format_activities(both),
+            forecast_summary: get_weather(destination)[:condition],
+            temperature: "#{current_temp(destination)} F"
+          }
+    # binding.pry
+    Activities.new(data)
   end
   
   def self.get_weather(destination)
@@ -43,5 +61,17 @@ class ActivityFacade
   
   def self.current_temp(destination)
     get_weather(destination)[:temperature]
+  end
+  
+  def self.format_activities(activities)
+    activities.map do |activity|
+      {
+        "#{activity[:activity]}": {
+          type: activity[:type],
+          participants: activity[:participants],
+          price: activity[:price]
+        }
+      }
+    end
   end
 end

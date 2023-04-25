@@ -5,8 +5,8 @@ RSpec.describe ActivityFacade do
     it '#temp_over_60' do
       VCR.use_cassette('activity_facade/temp_over_60') do
         activities = ActivityFacade.temp_over_60("chicago,il")
-        #poro with activity info is created
-        # binding.pry
+        #poro with activity and weather info is created
+        binding.pry
       VCR.eject_cassette
       end
     end

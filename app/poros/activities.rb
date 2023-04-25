@@ -1,27 +1,16 @@
 class Activities
   attr_reader :id,
               :activities,
+              :destination,
               :forecast
   
   def initialize(data)
     # binding.pry
-    @id         = nil
-    @activities = activities_hash(data)
-    binding.pry
-    # @forecast    = placeholder
+    @id          = nil
+    @activities  = data[:activities]
+    @destination = data[:destination]
     # binding.pry
-  end
-  
-  def activities_hash(info)
-    info.map do |activity|
-      # binding.pry
-      {
-        "#{activity[:activity]}": {
-          type: activity[:type],
-          participants: activity[:participants],
-          price: activity[:price]
-        }
-      }
-    end
+    @forecast    = { "summary" => data[:forecast_summary], "temperature" => data[:temperature],}
+    # binding.pry
   end
 end
