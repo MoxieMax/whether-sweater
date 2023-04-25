@@ -4,7 +4,6 @@ RSpec.describe MapService, :vcr do
   context 'instance methods' do
     it 'returns lat/long' do
       VCR.use_cassette('map_service/get_location/') do
-        #set up webmock / vcr
         loc = MapService.get_location('Cincinnati, OH')
         
         expect(loc).to be_a Hash
