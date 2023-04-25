@@ -20,24 +20,21 @@ class BoredService
     event = BoredService.get_data("activity?price=#{price}")
   end
   
-  def self.get_activity_price_range(min, max) #float like 1.4
-    event = BoredService.get_data("/activity?minprice=#{min}&maxprice=#{max}")
-  end
+  # def self.get_activity_price_range(min, max) #float like 1.4
+  #   event = BoredService.get_data("/activity?minprice=#{min}&maxprice=#{max}")
+  # end
   
-  def self.get_activity_by_accessibility(float) #float like 1.4
-    event = BoredService.get_data("/activity?accessibility=#{float}")
-  end
+  # def self.get_activity_by_accessibility(float) #float like 1.4
+  #   event = BoredService.get_data("/activity?accessibility=#{float}")
+  # end
   
-  def self.get_activity_accessibility_range(min, max) #float like 1.4
-    event = BoredService.get_data("/activity?minprice=#{min}&maxprice=#{max}")
-  end
-  
-  def self.get_activity_price_range(min, max) #float like 1.4
-    event = BoredService.get_data("/activity?minaccessibility==#{min}&maxaccessibility==#{max}")
-  end
+  # def self.get_activity_accessibility_range(min, max) #float like 1.4
+  #   event = BoredService.get_data("/activity?minaccessibility==#{min}&maxaccessibility==#{max}")
+  # end
   
   def self.get_data(url)
     response = conn.get(url)
+    # binding.pry
     JSON.parse(response.body, symbolize_names: true)
   end
   

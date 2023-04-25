@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://www.boredapi.com/activity?accessibility=0.15
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - Express
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Accept-Ranges:
+      - bytes
+      Cache-Control:
+      - public, max-age=0
+      Last-Modified:
+      - Mon, 22 Jun 2020 01:44:13 GMT
+      Etag:
+      - W/"250-172d9b27dc8"
+      Content-Type:
+      - text/html; charset=UTF-8
+      Content-Length:
+      - '592'
+      Date:
+      - Tue, 25 Apr 2023 08:07:28 GMT
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: <!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link
+        rel=stylesheet href=https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css
+        integrity=sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M
+        crossorigin=anonymous><script src=https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js></script><script
+        src=https://code.jquery.com/ui/1.12.1/jquery-ui.js></script><title>Bored API</title></head><body><div
+        id=app></div><script src=js/app.6e3cd8750bda7a41d57e.js></script></body></html>
+  recorded_at: Tue, 25 Apr 2023 08:07:28 GMT
+recorded_with: VCR 6.1.0
