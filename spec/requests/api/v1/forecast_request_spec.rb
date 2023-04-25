@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Forecast API', type: :request do
   it 'pulls the forecast for the location' do
     VCR.use_cassette('forecast_controller/get_forecast') do
-      get '/api/v1/forecast?location=cincinnati,oh'
+      get '/api/v1/forecast/cincinnati,oh'
       
       expect(response).to be_successful
       
