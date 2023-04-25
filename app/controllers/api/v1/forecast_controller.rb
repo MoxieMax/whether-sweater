@@ -1,5 +1,5 @@
 class Api::V1::ForecastController < ApplicationController
-  def show
+  def index
     # binding.pry
     forecast = ForecastFacade.forecast(params[:location])
     # binding.pry
