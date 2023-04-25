@@ -54,7 +54,6 @@ RSpec.describe ActivityFacade do
     it '#temp_under_50' do
       VCR.use_cassette('activity_facade/temp_under_50') do
           activities = ActivityFacade.temp_under_50("chicago,il")
-          # binding.pry
           
           expect(activities).to be_an_instance_of(Activities)
           
