@@ -4,12 +4,12 @@ class ForecastService
     
     weather = ForecastService.get_data("forecast.json?&q=#{loc[:lat]} #{loc[:lng]}&days=5") 
     
-    # http://api.weatherapi.com/v1/forecast.json?key=ENV[WEATHER_KEY]&q=39.10713 -84.50413&days=1&aqi=no&alerts=no
+    #for testing: http://api.weatherapi.com/v1/forecast.json?key=ENV[WEATHER_KEY]&q=39.10713 -84.50413&days=1&aqi=no&alerts=no
   end
   
   def self.get_data(url)
     response = conn.get(url)
-# binding.pry #response has no body
+    
     JSON.parse(response.body, symbolize_names: true)
   end
   
