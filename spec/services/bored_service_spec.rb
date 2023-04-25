@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-describe BoredService do
+describe ActivityService do
   context "instance methods" do
     it '#get_random_activity' do
-      VCR.use_cassette('bored_service/get_random_activity/') do
-        activity = BoredService.get_random_activity
+      VCR.use_cassette('activity_service/get_random_activity/') do
+        activity = ActivityService.get_random_activity
         
         expect(activity).to be_a Hash
         expect(activity.size).to eq(7)
@@ -22,8 +22,8 @@ describe BoredService do
     end
     
     it '#get_activity' do
-      VCR.use_cassette('bored_service/get_activity/') do
-        activity = BoredService.get_activity("1934228")
+      VCR.use_cassette('activity_service/get_activity/') do
+        activity = ActivityService.get_activity("1934228")
         
         expect(activity).to be_a Hash
         expect(activity.size).to eq(7)
@@ -41,8 +41,8 @@ describe BoredService do
     end
     
     it '#get_activity_by_participants' do
-      VCR.use_cassette('bored_service/get_activity_by_participants/') do
-        activity = BoredService.get_activity_by_participants(3)
+      VCR.use_cassette('activity_service/get_activity_by_participants/') do
+        activity = ActivityService.get_activity_by_participants(3)
         
         expect(activity).to be_a Hash
         expect(activity.size).to eq(7)
@@ -60,8 +60,8 @@ describe BoredService do
     end
     
     it '#get_activity_by_type' do
-      VCR.use_cassette('bored_service/get_activity_by_type/') do
-        activity = BoredService.get_activity_by_type("relaxation")
+      VCR.use_cassette('activity_service/get_activity_by_type/') do
+        activity = ActivityService.get_activity_by_type("relaxation")
         
         expect(activity).to be_a Hash
         expect(activity.size).to eq(7)
@@ -79,8 +79,8 @@ describe BoredService do
     end
     
     it '#get_activity_by_price' do
-      VCR.use_cassette('bored_service/get_activity_by_price/') do
-        activity = BoredService.get_activity_by_price(0.15)
+      VCR.use_cassette('activity_service/get_activity_by_price/') do
+        activity = ActivityService.get_activity_by_price(0.15)
         
         expect(activity).to be_a Hash
         expect(activity.size).to eq(7)
@@ -100,8 +100,8 @@ describe BoredService do
 end
 
 # it '#get_activity_by_accessibility' do
-#   VCR.use_cassette('bored_service/get_activity_by_accessibility/') do
-#     activity = BoredService.get_activity_by_accessibility(0.15)
+#   VCR.use_cassette('activity_service/get_activity_by_accessibility/') do
+#     activity = ActivityService.get_activity_by_accessibility(0.15)
 # 
 #     expect(activity).to be_a Hash
 #     expect(activity.size).to eq(7)
@@ -119,8 +119,8 @@ end
 # end
 
 # it '#get_activity_price_range' do
-#   VCR.use_cassette('bored_service/get_activity_price_range/') do
-#     activity = BoredService.get_activity_price_range(0, 0.01)
+#   VCR.use_cassette('activity_service/get_activity_price_range/') do
+#     activity = ActivityService.get_activity_price_range(0, 0.01)
 # 
 #     expect(activity).to be_a Hash
 #     expect(activity.size).to eq(7)

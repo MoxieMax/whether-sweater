@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://www.boredapi.com/api/activity?participants=3
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - Express
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '144'
+      Etag:
+      - W/"90-1il2PBWuP/XloFJIE7QSA/Dcyz0"
+      Date:
+      - Tue, 25 Apr 2023 15:05:01 GMT
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"activity":"Go on a fishing trip with some friends","type":"social","participants":3,"price":0.4,"link":"","key":"3149232","accessibility":0.4}'
+  recorded_at: Tue, 25 Apr 2023 15:05:01 GMT
+recorded_with: VCR 6.1.0

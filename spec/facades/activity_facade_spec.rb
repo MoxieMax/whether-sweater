@@ -1,9 +1,9 @@
 # require 'rails_helper'
 # 
-# RSpec.describe BoredFacade do
+# RSpec.describe ActivityFacade do
 #   context 'methods' do
 #     it '#method_name' do
-#       VCR.use_cassette('bored_facade/#name of method') do
+#       VCR.use_cassette('activity_facade/#name of method') do
 # 
 # 
 # 

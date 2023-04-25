@@ -1,23 +1,23 @@
-class BoredService
+class ActivityService
   def self.get_random_activity
     #random event
-    event = BoredService.get_data("activity/")
+    event = ActivityService.get_data("activity/")
   end
   
   def self.get_activity(key) #string
-    event = BoredService.get_data("activity?key=#{key}")
+    event = ActivityService.get_data("activity?key=#{key}")
   end
   
   def self.get_activity_by_participants(number)
-    event = BoredService.get_data("activity?participants=#{number}")
+    event = ActivityService.get_data("activity?participants=#{number}")
   end
   
   def self.get_activity_by_type(type)
-    event = BoredService.get_data("activity?type=#{type}")
+    event = ActivityService.get_data("activity?type=#{type}")
   end
   
   def self.get_activity_by_price(price) #float like 1.4
-    event = BoredService.get_data("activity?price=#{price}")
+    event = ActivityService.get_data("activity?price=#{price}")
   end
   
   def self.get_data(url)
@@ -32,13 +32,13 @@ class BoredService
 end
 
 # def self.get_activity_price_range(min, max) #float like 1.4
-#   event = BoredService.get_data("/activity?minprice=#{min}&maxprice=#{max}")
+#   event = ActivityService.get_data("/activity?minprice=#{min}&maxprice=#{max}")
 # end
 
 # def self.get_activity_by_accessibility(float) #float like 1.4
-#   event = BoredService.get_data("/activity?accessibility=#{float}")
+#   event = ActivityService.get_data("/activity?accessibility=#{float}")
 # end
 
 # def self.get_activity_accessibility_range(min, max) #float like 1.4
-#   event = BoredService.get_data("/activity?minaccessibility==#{min}&maxaccessibility==#{max}")
+#   event = ActivityService.get_data("/activity?minaccessibility==#{min}&maxaccessibility==#{max}")
 # end
