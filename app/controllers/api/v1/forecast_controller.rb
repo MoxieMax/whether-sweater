@@ -1,8 +1,8 @@
 class Api::V1::ForecastController < ApplicationController
   def show
-    binding.pry
+    # binding.pry
     forecast = ForecastFacade.forecast(params[:location])
-    binding.pry
+    # binding.pry
     render json: ForecastSerializer.new(forecast)
   end
   
