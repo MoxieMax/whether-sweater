@@ -96,47 +96,43 @@ describe BoredService do
         VCR.eject_cassette
       end
     end
-    
-    
-    # it '#get_activity_by_accessibility' do
-    #   VCR.use_cassette('bored_service/get_activity_by_accessibility/') do
-    #     activity = BoredService.get_activity_by_accessibility(0.15)
-    # 
-    #     expect(activity).to be_a Hash
-    #     expect(activity.size).to eq(7)
-    # 
-    #     expect(activity[:activity]).to be_a(String)
-    #     expect(activity[:type]).to be_a(String)
-    #     expect(activity[:participants]).to be_an(Integer)
-    #     expect(activity[:price]).to eq(0.15)
-    #     expect(activity[:link]).to be_a(String)
-    #     expect(activity[:key]).to be_an(String)
-    #     expect(activity[:accessibility]).to be_a(Float)
-    # 
-    #     VCR.eject_cassette
-    #   end
-    # end
-    
-    # it '#get_activity_price_range' do
-    #   VCR.use_cassette('bored_service/get_activity_price_range/') do
-    #     activity = BoredService.get_activity_price_range(0, 0.01)
-    # 
-    #     expect(activity).to be_a Hash
-    #     expect(activity.size).to eq(7)
-    # 
-    #     expect(activity[:activity]).to be_a(String)
-    #     expect(activity[:type]).to be_a(String)
-    #     expect(activity[:participants]).to be_an(Integer)
-    #     expect(activity[:price]).to be_within(0.01).of(0.05)
-    #     expect(activity[:link]).to be_a(String)
-    #     expect(activity[:key]).to be_an(String)
-    #     expect(activity[:accessibility]).to be_a(Float)
-    # 
-    #     VCR.eject_cassette
-    #   end
-    # end
-    
-    
-    
   end
 end
+
+# it '#get_activity_by_accessibility' do
+#   VCR.use_cassette('bored_service/get_activity_by_accessibility/') do
+#     activity = BoredService.get_activity_by_accessibility(0.15)
+# 
+#     expect(activity).to be_a Hash
+#     expect(activity.size).to eq(7)
+# 
+#     expect(activity[:activity]).to be_a(String)
+#     expect(activity[:type]).to be_a(String)
+#     expect(activity[:participants]).to be_an(Integer)
+#     expect(activity[:price]).to eq(0.15)
+#     expect(activity[:link]).to be_a(String)
+#     expect(activity[:key]).to be_an(String)
+#     expect(activity[:accessibility]).to be_a(Float)
+# 
+#     VCR.eject_cassette
+#   end
+# end
+
+# it '#get_activity_price_range' do
+#   VCR.use_cassette('bored_service/get_activity_price_range/') do
+#     activity = BoredService.get_activity_price_range(0, 0.01)
+# 
+#     expect(activity).to be_a Hash
+#     expect(activity.size).to eq(7)
+# 
+#     expect(activity[:activity]).to be_a(String)
+#     expect(activity[:type]).to be_a(String)
+#     expect(activity[:participants]).to be_an(Integer)
+#     expect(activity[:price]).to be_within(0.01).of(0.05)
+#     expect(activity[:link]).to be_a(String)
+#     expect(activity[:key]).to be_an(String)
+#     expect(activity[:accessibility]).to be_a(Float)
+# 
+#     VCR.eject_cassette
+#   end
+# end
