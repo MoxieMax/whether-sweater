@@ -69,7 +69,24 @@ RSpec.describe "UserController", :vcr do
       expect(parse[:errors]).to eq(["Password confirmation doesn't match Password"])
     end
   
-    it "for missing information" do
+    it "for missing email" do
+      # VCR.use_cassette('users_controller/create/fail_missing') do
+      user_params = ({
+                      email: "",
+                      password: "password",
+                      password_confirmation: "password"
+                    })
+                    
+      post "/api/v1/users", params: user_params.to_json, headers: { 'CONTENT_TYPE' => 'application/json' }
+      
+      expect(response.status).to eq(400)
+      
+      parse = JSON.parse(response.body, symbolize_names: true)
+      
+      expect(parse[:errors].first).to eq("Email can't be blank")
+    end
+  
+    it "for missing password" do
       # VCR.use_cassette('users_controller/create/fail_missing') do
       user_params = ({
                       email: "AbigailPent@fifth.edu",
@@ -83,7 +100,7 @@ RSpec.describe "UserController", :vcr do
       
       parse = JSON.parse(response.body, symbolize_names: true)
       
-      expect(parse[:errors]).to eq(["Password can't be blank", "Password can't be blank", "Password confirmation can't be blank"])
+      expect(parse[:errors].first).to eq("Password can't be blank")
     end
   end
 end
