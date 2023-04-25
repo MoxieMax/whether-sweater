@@ -5,6 +5,7 @@ require 'pry'
 require 'simplecov'
 SimpleCov.start do
   add_filter "/spec/rails_helper.rb"
+  add_filter "/config"
 end
 
 require 'webmock/rspec'
