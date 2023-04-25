@@ -1,4 +1,5 @@
-# class ActivitySerializer
-#   include JSONAPI::Serializer
-#   attributes
-# end
+class ActivitySerializer
+  include JSONAPI::Serializer
+  attributes :destination, :forecast, :activities
+    set_type :activities
+end
