@@ -10,7 +10,7 @@ RSpec.describe "UserController", :vcr do
                       password: "FrontlineFifth",
                       password_confirmation: "FrontlineFifth"
                     })
-      puts post "/api/v1/users", params: user_params.to_json, headers: { 'CONTENT_TYPE' => 'application/json' }
+      post "/api/v1/users", params: user_params.to_json, headers: { 'CONTENT_TYPE' => 'application/json' }
       
       expect(response).to be_successful
       expect(response.status).to eq(201)
