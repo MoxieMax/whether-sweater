@@ -6,8 +6,8 @@ class User < ApplicationRecord
   validates :password, presence: true
   validates :password_confirmation, presence: { on: :create }
   
-  validates :api_key, presence: true,
-                      uniqueness: true
+  # validates :api_key, presence: true,
+  #                     uniqueness: true
   # validates :api_key, presence: true
   
   private

@@ -19,7 +19,6 @@ RSpec.describe User, type: :model do
                         )
       
       expect(gideon.send(:generate_api_key)).to be_a(String)
-      # binding.pry
     end
   end
 end
