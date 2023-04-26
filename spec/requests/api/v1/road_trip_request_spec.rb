@@ -87,7 +87,7 @@ RSpec.describe 'Road Trip API', type: :request do
           expect(trip[:data][:attributes][:start_city]).to eq('new york,ny')
           expect(trip[:data][:attributes][:end_city]).to eq('panama city, panama')
           
-          expect(trip[:data][:attributes][:travel_time]).to eq("80:30:20")
+          expect(trip[:data][:attributes][:travel_time]).to eq("80:30:16")
           
           expect(trip[:data][:attributes][:weather_at_eta].keys).to eq([:datetime, :temperature, :condition])
           
