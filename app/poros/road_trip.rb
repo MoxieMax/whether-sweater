@@ -6,10 +6,12 @@ class RoadTrip
               :weather_at_eta
 
   def initialize(data)
+    # binding.pry
     @id             = nil
     @start_city     = data[:start_city]
     @end_city       = data[:end_city]
-    @travel_time    = time(data)
-    @weather_at_eta = weather(data)
+    @travel_time    = data[:time]
+    @weather_at_eta = data[:weather]
+    # binding.pry
   end
 end

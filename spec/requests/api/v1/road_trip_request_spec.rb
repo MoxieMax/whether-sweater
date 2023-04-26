@@ -32,13 +32,14 @@ RSpec.describe 'Road Trip API', type: :request do
       it "#creates a trip" do
         VCR.use_cassette('road_trip_api/create_road_trip') do
           trip_params = {
-                          origin: 'denver,co',
-                          destination: 'boulder,co',
+                          origin: 'cincinnati,oh',
+                          destination: 'chicago,il',
                           api_key: @session[:data][:attributes][:api_key]
                         }
           post '/api/v1/road_trip', params: trip_params.to_json, headers: headers
           
           expect(response).to be_successful
+          trip = JSON.parse(response.body, symbolize_names: true).deep_symbolize_keys
           
           binding.pry
           VCR.eject_cassette

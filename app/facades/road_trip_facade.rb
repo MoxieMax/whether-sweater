@@ -11,13 +11,14 @@ class RoadTripFacade
                 end_city: data[:destination],
                 travel_time: travel_time,
                 weather: forecast,
-                time: time
+                time: travel_time
               }
+    # binding.pry
     RoadTrip.new(details)
   end
   
   def self.format_time(route)
-    binding.pry
+    # binding.pry
     route[:formattedTime].split(':')# if route[:routeError][:errorCode] == (-400)
   end
 end

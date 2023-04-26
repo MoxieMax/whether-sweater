@@ -3,7 +3,8 @@ class Api::V1::RoadTripController < ApplicationController
     user = User.find_by(api_key: params[:api_key])
     # binding.pry
     trip = RoadTripFacade.road_trip(origin: params["origin"], destination: params["destination"])
-    binding.pry
+    # binding.pry
+    render json: RoadTripSerializer.new(trip), status: 201
   end
   
   private
