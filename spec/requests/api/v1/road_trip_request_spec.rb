@@ -2,8 +2,6 @@ require 'rails_helper'
 
 RSpec.describe 'Road Trip API', type: :request do
   context '#create Road Trip' do
-    # let(:headers) { { 'CONTENT_TYPE' => 'application/json' } }
-    
     before do
       User.destroy_all
       #create user
@@ -41,7 +39,25 @@ RSpec.describe 'Road Trip API', type: :request do
           expect(response).to be_successful
           trip = JSON.parse(response.body, symbolize_names: true).deep_symbolize_keys
           
-          binding.pry
+          # binding.pry
+          expect(trip.class).to eq(Hash)
+          
+          expect(trip[:data].class).to eq(Hash)
+          expect(trip[:data].keys).to eq([:id, :type, :attributes])
+          expect(trip[:data][:id]).to eq(nil)
+          expect(trip[:data][:type]).to eq("road_trip")
+          
+          expect(trip[:data][:attributes].class).to eq(Hash)
+          expect(trip[:data][:attributes].keys).to eq([:start_city, :end_city, :travel_time, :weather_at_eta])
+          
+          expect(trip[:data][:attributes][:start_city]).to eq("cincinnati,oh")
+          expect(trip[:data][:attributes][:end_city]).to eq("chicago,il")
+          
+          expect(trip[:data][:attributes][:travel_time]).to eq(["04", "42", "42"])
+          #needs to change with formatting
+          
+          expect(trip[:data][:attributes][:weather_at_eta].class).to eq(Hash)
+          #needs to change to match json response
           VCR.eject_cassette
         end
       end
