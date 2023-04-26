@@ -4,9 +4,9 @@ RSpec.describe MapService, :vcr do
   context 'instance methods' do
     it 'returns lat/long' do
       VCR.use_cassette('map_service/get_location/') do
-        #set up webmock / vcr
+        
         loc = MapService.get_location('Cincinnati, OH')
-# binding.pry
+        
         expect(loc).to be_a Hash
         expect(loc.size).to eq(2)
         expect(loc[:lat]).to be_a Float
