@@ -9,6 +9,7 @@ SimpleCov.start do
 end
 
 require 'webmock/rspec'
+WebMock.disable_net_connect!(allow_localhost: true)
 require 'vcr'
 
 VCR.configure do |config|
