@@ -16,8 +16,6 @@ RSpec.describe 'Sessions API', type: :request do
     
     it 'when given correct params' do
       VCR.use_cassette('sessions_controller/create_success') do
-        # post "/api/v1/sessions"
-        # binding.pry
         expect(response).to be_successful
         
         parsed = JSON.parse(response.body, symbolize_names: true)
@@ -30,6 +28,7 @@ RSpec.describe 'Sessions API', type: :request do
         expect(parsed[:data][:attributes].count).to eq(2)
         expect(parsed[:data][:attributes][:email]).to eq("cavlife@ninth.net")
         expect(parsed[:data][:attributes]).to include(:email, :api_key)
+        expect(parsed[:data][:attributes]).to_not include(:password)
         # binding.pry
       end
     end
