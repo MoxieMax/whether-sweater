@@ -8,7 +8,7 @@ class MapService
   
   def self.get_trip(origin, destination)
     # binding.pry
-    trip = MapService.get_data("/directions/v2/route?key=#{ENV['MAP_KEY']}&from=#{origin}&to=#{destination}&outFormat=json&ambiguities=ignore&routeType=fastest&doReverseGeocode=false&enhancedNarrative=false&avoidTimedConditions=false")[:route]
+    trip = MapService.get_data("/directions/v2/route?key=#{ENV['MAP_KEY']}&from=#{origin}&to=#{destination}&outFormat=json&ambiguities=ignore&routeType=fastest&doReverseGeocode=false&enhancedNarrative=false&avoidTimedConditions=false")#[:route]
     #, params: origin: origin, destination: destination)#[:route]
     
     # binding.pry
@@ -19,7 +19,9 @@ class MapService
   def self.get_data(url)
     response = conn.get(url)
     
+    # trip = 
     JSON.parse(response.body, symbolize_names: true)
+    # binding.pry
   end
   
   private
