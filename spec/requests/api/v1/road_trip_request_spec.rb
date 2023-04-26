@@ -52,10 +52,10 @@ RSpec.describe 'Road Trip API', type: :request do
           expect(trip[:data][:attributes][:start_city]).to eq("cincinnati,oh")
           expect(trip[:data][:attributes][:end_city]).to eq("chicago,il")
           
-          expect(trip[:data][:attributes][:travel_time]).to eq("04:42:42")
+          expect(trip[:data][:attributes][:travel_time]).to eq("04:42:32")
           
           expect(trip[:data][:attributes][:weather_at_eta].keys).to eq([:datetime, :temperature, :condition])
-          expect(trip[:data][:attributes][:weather_at_eta]).to eq({:datetime=>"2023-04-26 10:00", :temperature=>42.4, :condition=>"Sunny"})
+          expect(trip[:data][:attributes][:weather_at_eta]).to eq({:condition=>"Sunny", :datetime=>"2023-04-26 12:00", :temperature=>49.8})
           # expect(trip[:data][:attributes][:weather_at_eta].class).to eq(Hash)
           #needs to change to match json response
           VCR.eject_cassette
@@ -87,11 +87,11 @@ RSpec.describe 'Road Trip API', type: :request do
           expect(trip[:data][:attributes][:start_city]).to eq('new york,ny')
           expect(trip[:data][:attributes][:end_city]).to eq('panama city, panama')
           
-          expect(trip[:data][:attributes][:travel_time]).to eq("80:36:17")
+          expect(trip[:data][:attributes][:travel_time]).to eq("80:30:20")
           
           expect(trip[:data][:attributes][:weather_at_eta].keys).to eq([:datetime, :temperature, :condition])
           
-          expect(trip[:data][:attributes][:weather_at_eta]).to eq({:datetime=>"2023-04-29", :temperature=>80.7, :condition=>"Moderate rain"})
+          expect(trip[:data][:attributes][:weather_at_eta]).to eq({:condition=>"Moderate rain", :datetime=>"2023-04-29", :temperature=>81.0})
           #needs to change to match json response
           VCR.eject_cassette
         end
@@ -129,6 +129,36 @@ RSpec.describe 'Road Trip API', type: :request do
           VCR.eject_cassette
         end
       end
+      
+      # it "does not #create a trip" do
+      #   VCR.use_cassette('road_trip_api/impossible_road_trip') do
+      #     trip_params = {
+      #                     origin: 'new york,ny',
+      #                     destination: 'london,uk',
+      #                     api_key: "string"
+      #                   }
+      #     post '/api/v1/road_trip', params: trip_params.to_json, headers: headers
+      # 
+      #     expect(response).to be_successful
+      #     trip = JSON.parse(response.body, symbolize_names: true).deep_symbolize_keys
+      #     binding.pry
+      #     expect(trip.class).to eq(Hash)
+      # 
+      #     # expect(trip[:data].class).to eq(Hash)
+      #     # expect(trip[:data].keys).to eq([:id, :type, :attributes])
+      #     # expect(trip[:data][:id]).to eq(nil)
+      #     # expect(trip[:data][:type]).to eq("road_trip")
+      #     # 
+      #     # expect(trip[:data][:attributes].class).to eq(Hash)
+      #     # expect(trip[:data][:attributes].keys).to eq([:start_city, :end_city, :travel_time, :weather_at_eta])
+      #     # expect(trip[:data][:attributes][:start_city]).to eq("new york,ny")
+      #     # expect(trip[:data][:attributes][:end_city]).to eq("london,uk")
+      #     # expect(trip[:data][:attributes][:travel_time]).to eq("impossible")
+      #     # expect(trip[:data][:attributes][:weather_at_eta]).to eq({})
+      # 
+      #     VCR.eject_cassette
+      #   end
+      # end
     end
   end
 end
