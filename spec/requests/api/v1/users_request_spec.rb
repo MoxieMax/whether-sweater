@@ -24,8 +24,6 @@ RSpec.describe "UsersController", type: :request do
                         password_confirmation: "FrontlineFifth"
                       })
         # post "/api/v1/users", params: user_params.to_json, headers: headers
-        # puts "Endpoint: http://localhost:3000/api/v1/users"
-# Rails.logger.info("Request object: #{request.inspect}")
         post "http://localhost:3000/api/v1/users", params: user_params.to_json, headers: headers
         expect(response).to be_successful
         expect(response.status).to eq(201)
@@ -35,6 +33,7 @@ RSpec.describe "UsersController", type: :request do
         # # Add debugging statement here to check if the cassette file was created
         # puts "Cassette file: #{VCR.current_cassette.file}"
         # puts VCR.current_cassette.inspect
+        # # Yeah, none of that debugging worked.
         
         expect(parsed).to be_a(Hash)
         expect(parsed.keys).to eq([:data])

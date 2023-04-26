@@ -14,7 +14,7 @@ class RoadTripFacade
                 RoadTrip.new(details)
     else
       forecast    = ForecastService.get_forecast(data[:destination])
-      travel_time = format_time(route)
+      travel_time = route[:route][:formattedTime]
       details     = {
                       start_city: data[:origin],
                       end_city: data[:destination],
@@ -27,7 +27,7 @@ class RoadTripFacade
     end
   end
   
-  def self.format_time(route)
-    route[:route][:formattedTime].split(':')
-  end
+  # def self.format_time(route)
+  #   route[:route][:formattedTime].split(':')
+  # end
 end
