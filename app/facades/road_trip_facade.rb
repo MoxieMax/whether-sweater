@@ -1,8 +1,6 @@
 class RoadTripFacade
   def self.road_trip(data)
-    # binding.pry
     route       = MapService.get_trip(data[:origin], data[:destination])
-    # binding.pry
     if route[:info][:statuscode] == 402
       details = {
                   id: nil,
@@ -22,7 +20,6 @@ class RoadTripFacade
                       weather: forecast,
                       time: travel_time
                     }
-      # binding.pry
       RoadTrip.new(details)
     end
   end

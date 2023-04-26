@@ -10,15 +10,12 @@ class RoadTrip
     @start_city     = data[:start_city]
     @end_city       = data[:end_city]
     @travel_time    = data[:travel_time]
-    # binding.pry
     @weather_at_eta = weather(data)
-    # binding.pry
   end
   
   def weather(data)
     arrival = calculate_arrival(data)
     diff    = calculate_difference(data)
-    # binding.pry
     if diff == "impossible"
       {}
     elsif diff > 24
@@ -76,54 +73,6 @@ class RoadTrip
         arrival   = Time.now + seconds
         arrival.strftime("%Y-%m-%d %H:%M:%S") if arrival
       end
-      # binding.pry
-      # if @travel_time > "23:59:59"
-      #   arrival = Chronic.parse(@travel_time)
-      #   if arrival
-      #     arrival.strftime("%Y-%m-%d %H:%M:%S")
-      #   else
-      #     puts "Chronic failed to parse #{@travel_time}"
-      #     nil
-      #   end
-      # elsif @travel_time.match?(/\d{2}:\d{2}:\d{2}/)
-      #   time_trv  = Time.parse(@travel_time)
-      #   seconds   = time_trv.hour * 3600 + time_trv.min * 60 + time_trv.sec
-      #   arrival   = Time.now + seconds
-      #   if arrival
-      #     arrival.strftime("%Y-%m-%d %H:%M:%S")
-      #   else
-      #     puts "Failed to calculate arrival time for #{@travel_time}"
-      #     nil
-      #   end
-      # else
-      #   @travel_time = "impossible"
-      #   @travel_time
-      # end
-      
-      
-      # # if @travel_time == "impossible"
-      # #   return @travel_time
-      # # elsif @travel_time > "23:59:59"
-      # #   arrival = Chronic.parse(@travel_time)
-      # #   arrival.strftime("%Y-%m-%d %H:%M:%S") if arrival
-      # # else Time.parse(@travel_time)#@travel_time.match?(/\d{2}:\d{2}:\d{2}/)
-      # #   time_trv  = Time.parse(@travel_time)
-      # #   seconds   = time_trv.hour * 3600 + time_trv.min * 60 + time_trv.sec
-      # #   arrival   = Time.now + seconds
-      # #   arrival.strftime("%Y-%m-%d %H:%M:%S") if arrival
-      # # end
-
-
-      # 
-      # elsif
-      #   time_trv  = Time.parse(@travel_time)
-      #   seconds   = time_trv.hour * 3600 + time_trv.min * 60 + time_trv.sec
-      #   arrival   = Time.now + seconds
-      #   arrival.strftime("%Y-%m-%d %H:%M:%S") if arrival
-      # 
-      # else @travel_time = "impossible"
-      #   @travel_time
-      # end
     end
     
     def calculate_difference(data)
