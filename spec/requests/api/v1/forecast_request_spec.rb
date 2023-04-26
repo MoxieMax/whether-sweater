@@ -4,7 +4,7 @@ RSpec.describe 'Forecast API', type: :request do
   it 'pulls the forecast for the location' do
     VCR.use_cassette('forecast_controller/get_forecast_index') do
       get "/api/v1/forecast?location=cincinnati,oh"
-      # binding.pry
+      
       expect(response).to be_successful
       
       fc = JSON.parse(response.body, symbolize_names:true)
