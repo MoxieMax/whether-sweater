@@ -15,19 +15,19 @@ RSpec.describe "UserController", :vcr do
       expect(response).to be_successful
       expect(response.status).to eq(201)
       
-      parse = JSON.parse(response.body, symbolize_names: true)
+      parsed = JSON.parse(response.body, symbolize_names: true)
       
-      expect(parse).to be_a(Hash)
-      expect(parse.keys).to eq([:data])
+      expect(parsed).to be_a(Hash)
+      expect(parsed.keys).to eq([:data])
       
-      expect(parse[:data].keys).to eq([:id, :type, :attributes])
-      expect(parse[:data][:id].to_i).to be_an(Integer)
-      expect(parse[:data][:type]).to eq("user")
+      expect(parsed[:data].keys).to eq([:id, :type, :attributes])
+      expect(parsed[:data][:id].to_i).to be_an(Integer)
+      expect(parsed[:data][:type]).to eq("user")
       
-      expect(parse[:data][:attributes]).to be_a(Hash)
-      expect(parse[:data][:attributes][:email]).to eq("cavlife@ninth.net")
-      expect(parse[:data][:attributes][:api_key]).to be_a(String)
-      expect(parse[:data][:attributes][:password]).to be_nil
+      expect(parsed[:data][:attributes]).to be_a(Hash)
+      expect(parsed[:data][:attributes][:email]).to eq("cavlife@ninth.net")
+      expect(parsed[:data][:attributes][:api_key]).to be_a(String)
+      expect(parsed[:data][:attributes][:password]).to be_nil
     end
   end
   
@@ -48,9 +48,9 @@ RSpec.describe "UserController", :vcr do
       
       expect(response.status).to eq(400)
       
-      parse = JSON.parse(response.body, symbolize_names: true)
+      parsed = JSON.parse(response.body, symbolize_names: true)
       
-      expect(parse[:errors]).to eq(["Email has already been taken"])
+      expect(parsed[:errors]).to eq(["Email has already been taken"])
     end
     
     it "for unmatched passwords" do
@@ -64,9 +64,9 @@ RSpec.describe "UserController", :vcr do
       
       expect(response.status).to eq(400)
       
-      parse = JSON.parse(response.body, symbolize_names: true)
+      parsed = JSON.parse(response.body, symbolize_names: true)
       
-      expect(parse[:errors]).to eq(["Password confirmation doesn't match Password"])
+      expect(parsed[:errors]).to eq(["Password confirmation doesn't match Password"])
     end
   
     it "for missing email" do
@@ -81,9 +81,9 @@ RSpec.describe "UserController", :vcr do
       
       expect(response.status).to eq(400)
       
-      parse = JSON.parse(response.body, symbolize_names: true)
+      parsed = JSON.parse(response.body, symbolize_names: true)
       
-      expect(parse[:errors].first).to eq("Email can't be blank")
+      expect(parsed[:errors].first).to eq("Email can't be blank")
     end
   
     it "for missing password" do
@@ -98,9 +98,9 @@ RSpec.describe "UserController", :vcr do
       
       expect(response.status).to eq(400)
       
-      parse = JSON.parse(response.body, symbolize_names: true)
+      parsed = JSON.parse(response.body, symbolize_names: true)
       
-      expect(parse[:errors].first).to eq("Password can't be blank")
+      expect(parsed[:errors].first).to eq("Password can't be blank")
     end
   end
 end
